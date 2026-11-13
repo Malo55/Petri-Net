@@ -1,0 +1,266 @@
+{
+  "id": "expert_05",
+  "order": 35,
+  "index": 5,
+  "difficulty": "expert",
+  "title": "Feu tricolore",
+  "statement": "Le retour Vert→Rouge (VR) ne doit pas consommer Tick. Supprimez l'arc Tick→VR. Séquence RO, OV, VR.",
+  "tools": [
+    "select",
+    "place",
+    "transition",
+    "arc",
+    "inhibitor",
+    "delete",
+    "edit_tokens",
+    "edit_weight",
+    "edit_priority",
+    "edit_label"
+  ],
+  "initial_net": {
+    "places": [
+      {
+        "id": "p_r",
+        "label": "Rouge",
+        "tokens": 1,
+        "x": 160,
+        "y": 160
+      },
+      {
+        "id": "p_o",
+        "label": "Orange",
+        "tokens": 0,
+        "x": 160,
+        "y": 320
+      },
+      {
+        "id": "p_v",
+        "label": "Vert",
+        "tokens": 0,
+        "x": 160,
+        "y": 480
+      },
+      {
+        "id": "p_tick",
+        "label": "Tick",
+        "tokens": 3,
+        "x": 520,
+        "y": 320
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t_ro",
+        "label": "RO",
+        "priority": 0,
+        "x": 340,
+        "y": 240
+      },
+      {
+        "id": "t_ov",
+        "label": "OV",
+        "priority": 0,
+        "x": 340,
+        "y": 400
+      },
+      {
+        "id": "t_vr",
+        "label": "VR",
+        "priority": 0,
+        "x": 340,
+        "y": 160
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p_r",
+        "to": "t_ro",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t_ro",
+        "to": "p_o",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a3",
+        "from": "p_tick",
+        "to": "t_ro",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a4",
+        "from": "p_o",
+        "to": "t_ov",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a5",
+        "from": "t_ov",
+        "to": "p_v",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a6",
+        "from": "p_tick",
+        "to": "t_ov",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a7",
+        "from": "p_v",
+        "to": "t_vr",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a8",
+        "from": "t_vr",
+        "to": "p_r",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a9",
+        "from": "p_tick",
+        "to": "t_vr",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "solution_net": {
+    "places": [
+      {
+        "id": "p_r",
+        "label": "Rouge",
+        "tokens": 1,
+        "x": 160,
+        "y": 160
+      },
+      {
+        "id": "p_o",
+        "label": "Orange",
+        "tokens": 0,
+        "x": 160,
+        "y": 320
+      },
+      {
+        "id": "p_v",
+        "label": "Vert",
+        "tokens": 0,
+        "x": 160,
+        "y": 480
+      },
+      {
+        "id": "p_tick",
+        "label": "Tick",
+        "tokens": 3,
+        "x": 520,
+        "y": 320
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t_ro",
+        "label": "RO",
+        "priority": 0,
+        "x": 340,
+        "y": 240
+      },
+      {
+        "id": "t_ov",
+        "label": "OV",
+        "priority": 0,
+        "x": 340,
+        "y": 400
+      },
+      {
+        "id": "t_vr",
+        "label": "VR",
+        "priority": 0,
+        "x": 340,
+        "y": 560
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p_r",
+        "to": "t_ro",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t_ro",
+        "to": "p_o",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a3",
+        "from": "p_tick",
+        "to": "t_ro",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a4",
+        "from": "p_o",
+        "to": "t_ov",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a5",
+        "from": "t_ov",
+        "to": "p_v",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a6",
+        "from": "p_tick",
+        "to": "t_ov",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a7",
+        "from": "p_v",
+        "to": "t_vr",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a8",
+        "from": "t_vr",
+        "to": "p_r",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "scenario": {
+    "firing_sequence": [
+      "RO",
+      "OV",
+      "VR"
+    ],
+    "target_marking": {
+      "Rouge": 1,
+      "Orange": 0,
+      "Vert": 0,
+      "Tick": 1
+    }
+  }
+}

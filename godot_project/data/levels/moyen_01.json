@@ -1,0 +1,150 @@
+{
+  "id": "moyen_01",
+  "order": 11,
+  "index": 1,
+  "difficulty": "moyen",
+  "title": "Place intermédiaire",
+  "statement": "Il manque la place P2 entre T1 et T2, ainsi que les arcs T1→P2 et P2→T2. Ajoutez-les (labels exacts P2).",
+  "tools": [
+    "select",
+    "place",
+    "transition",
+    "arc",
+    "delete",
+    "edit_tokens",
+    "edit_weight",
+    "edit_label"
+  ],
+  "initial_net": {
+    "places": [
+      {
+        "id": "p1",
+        "label": "P1",
+        "tokens": 1,
+        "x": 120,
+        "y": 300
+      },
+      {
+        "id": "p3",
+        "label": "P3",
+        "tokens": 0,
+        "x": 620,
+        "y": 300
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t1",
+        "label": "T1",
+        "priority": 0,
+        "x": 260,
+        "y": 300
+      },
+      {
+        "id": "t2",
+        "label": "T2",
+        "priority": 0,
+        "x": 480,
+        "y": 300
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p1",
+        "to": "t1",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a4",
+        "from": "t2",
+        "to": "p3",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "solution_net": {
+    "places": [
+      {
+        "id": "p1",
+        "label": "P1",
+        "tokens": 1,
+        "x": 120,
+        "y": 300
+      },
+      {
+        "id": "p2",
+        "label": "P2",
+        "tokens": 0,
+        "x": 370,
+        "y": 300
+      },
+      {
+        "id": "p3",
+        "label": "P3",
+        "tokens": 0,
+        "x": 620,
+        "y": 300
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t1",
+        "label": "T1",
+        "priority": 0,
+        "x": 260,
+        "y": 300
+      },
+      {
+        "id": "t2",
+        "label": "T2",
+        "priority": 0,
+        "x": 480,
+        "y": 300
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p1",
+        "to": "t1",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t1",
+        "to": "p2",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a3",
+        "from": "p2",
+        "to": "t2",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a4",
+        "from": "t2",
+        "to": "p3",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "scenario": {
+    "firing_sequence": [
+      "T1",
+      "T2"
+    ],
+    "target_marking": {
+      "P1": 0,
+      "P2": 0,
+      "P3": 1
+    }
+  }
+}

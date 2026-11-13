@@ -1,0 +1,113 @@
+{
+  "id": "moyen_08",
+  "order": 18,
+  "index": 8,
+  "difficulty": "moyen",
+  "title": "Seuil de poids",
+  "statement": "T1 consomme 2 jetons de Buffer. Placez exactement 2 jetons dans Buffer.",
+  "tools": [
+    "select",
+    "place",
+    "transition",
+    "arc",
+    "delete",
+    "edit_tokens",
+    "edit_weight",
+    "edit_label"
+  ],
+  "initial_net": {
+    "places": [
+      {
+        "id": "p_buf",
+        "label": "Buffer",
+        "tokens": 0,
+        "x": 160,
+        "y": 300
+      },
+      {
+        "id": "p_out",
+        "label": "Out",
+        "tokens": 0,
+        "x": 560,
+        "y": 300
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t1",
+        "label": "T1",
+        "priority": 0,
+        "x": 360,
+        "y": 300
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p_buf",
+        "to": "t1",
+        "weight": 2,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t1",
+        "to": "p_out",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "solution_net": {
+    "places": [
+      {
+        "id": "p_buf",
+        "label": "Buffer",
+        "tokens": 2,
+        "x": 160,
+        "y": 300
+      },
+      {
+        "id": "p_out",
+        "label": "Out",
+        "tokens": 0,
+        "x": 560,
+        "y": 300
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t1",
+        "label": "T1",
+        "priority": 0,
+        "x": 360,
+        "y": 300
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p_buf",
+        "to": "t1",
+        "weight": 2,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t1",
+        "to": "p_out",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "scenario": {
+    "firing_sequence": [
+      "T1"
+    ],
+    "target_marking": {
+      "Buffer": 0,
+      "Out": 1
+    }
+  }
+}

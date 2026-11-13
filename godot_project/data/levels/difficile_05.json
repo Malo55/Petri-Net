@@ -1,0 +1,200 @@
+{
+  "id": "difficile_05",
+  "order": 25,
+  "index": 5,
+  "difficulty": "difficile",
+  "title": "Section critique",
+  "statement": "Idle garde l'exclusion mutuelle. Mettez B à 0 et ajoutez Idle→Enter et Leave→Idle. Séquence Enter, Leave.",
+  "tools": [
+    "select",
+    "place",
+    "transition",
+    "arc",
+    "delete",
+    "edit_tokens",
+    "edit_weight",
+    "edit_label"
+  ],
+  "initial_net": {
+    "places": [
+      {
+        "id": "p_a",
+        "label": "A",
+        "tokens": 1,
+        "x": 120,
+        "y": 200
+      },
+      {
+        "id": "p_b",
+        "label": "B",
+        "tokens": 1,
+        "x": 120,
+        "y": 400
+      },
+      {
+        "id": "p_cs",
+        "label": "CS",
+        "tokens": 0,
+        "x": 520,
+        "y": 300
+      },
+      {
+        "id": "p_idle",
+        "label": "Idle",
+        "tokens": 1,
+        "x": 320,
+        "y": 500
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t_enter",
+        "label": "Enter",
+        "priority": 0,
+        "x": 320,
+        "y": 200
+      },
+      {
+        "id": "t_leave",
+        "label": "Leave",
+        "priority": 0,
+        "x": 520,
+        "y": 420
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p_a",
+        "to": "t_enter",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t_enter",
+        "to": "p_cs",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a3",
+        "from": "p_cs",
+        "to": "t_leave",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a4",
+        "from": "t_leave",
+        "to": "p_b",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "solution_net": {
+    "places": [
+      {
+        "id": "p_a",
+        "label": "A",
+        "tokens": 1,
+        "x": 120,
+        "y": 200
+      },
+      {
+        "id": "p_b",
+        "label": "B",
+        "tokens": 0,
+        "x": 120,
+        "y": 400
+      },
+      {
+        "id": "p_cs",
+        "label": "CS",
+        "tokens": 0,
+        "x": 520,
+        "y": 300
+      },
+      {
+        "id": "p_idle",
+        "label": "Idle",
+        "tokens": 1,
+        "x": 320,
+        "y": 500
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t_enter",
+        "label": "Enter",
+        "priority": 0,
+        "x": 320,
+        "y": 200
+      },
+      {
+        "id": "t_leave",
+        "label": "Leave",
+        "priority": 0,
+        "x": 520,
+        "y": 420
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p_a",
+        "to": "t_enter",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t_enter",
+        "to": "p_cs",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a3",
+        "from": "p_cs",
+        "to": "t_leave",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a4",
+        "from": "t_leave",
+        "to": "p_b",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a5",
+        "from": "p_idle",
+        "to": "t_enter",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a6",
+        "from": "t_leave",
+        "to": "p_idle",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "scenario": {
+    "firing_sequence": [
+      "Enter",
+      "Leave"
+    ],
+    "target_marking": {
+      "A": 0,
+      "B": 1,
+      "CS": 0,
+      "Idle": 1
+    }
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "id": "moyen_05",
+  "order": 15,
+  "index": 5,
+  "difficulty": "moyen",
+  "title": "Arc de restitution",
+  "statement": "Après End, la ressource doit revenir dans Libre. Ajoutez l'arc End→Libre.",
+  "tools": [
+    "select",
+    "place",
+    "transition",
+    "arc",
+    "delete",
+    "edit_tokens",
+    "edit_weight",
+    "edit_label"
+  ],
+  "initial_net": {
+    "places": [
+      {
+        "id": "p_libre",
+        "label": "Libre",
+        "tokens": 1,
+        "x": 160,
+        "y": 220
+      },
+      {
+        "id": "p_occupe",
+        "label": "Occupe",
+        "tokens": 0,
+        "x": 160,
+        "y": 420
+      },
+      {
+        "id": "p_fin",
+        "label": "Fin",
+        "tokens": 0,
+        "x": 560,
+        "y": 320
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t_start",
+        "label": "Start",
+        "priority": 0,
+        "x": 360,
+        "y": 220
+      },
+      {
+        "id": "t_end",
+        "label": "End",
+        "priority": 0,
+        "x": 360,
+        "y": 420
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p_libre",
+        "to": "t_start",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t_start",
+        "to": "p_occupe",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a3",
+        "from": "p_occupe",
+        "to": "t_end",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a5",
+        "from": "t_end",
+        "to": "p_fin",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "solution_net": {
+    "places": [
+      {
+        "id": "p_libre",
+        "label": "Libre",
+        "tokens": 1,
+        "x": 160,
+        "y": 220
+      },
+      {
+        "id": "p_occupe",
+        "label": "Occupe",
+        "tokens": 0,
+        "x": 160,
+        "y": 420
+      },
+      {
+        "id": "p_fin",
+        "label": "Fin",
+        "tokens": 0,
+        "x": 560,
+        "y": 320
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t_start",
+        "label": "Start",
+        "priority": 0,
+        "x": 360,
+        "y": 220
+      },
+      {
+        "id": "t_end",
+        "label": "End",
+        "priority": 0,
+        "x": 360,
+        "y": 420
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p_libre",
+        "to": "t_start",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t_start",
+        "to": "p_occupe",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a3",
+        "from": "p_occupe",
+        "to": "t_end",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a4",
+        "from": "t_end",
+        "to": "p_libre",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a5",
+        "from": "t_end",
+        "to": "p_fin",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "scenario": {
+    "firing_sequence": [
+      "Start",
+      "End"
+    ],
+    "target_marking": {
+      "Libre": 1,
+      "Occupe": 0,
+      "Fin": 1
+    }
+  }
+}

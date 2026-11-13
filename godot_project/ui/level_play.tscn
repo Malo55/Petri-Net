@@ -1,0 +1,237 @@
+[gd_scene load_steps=3 format=3 uid="uid://blevelplay0001"]
+
+[ext_resource type="Script" path="res://ui/level_play.gd" id="1_play"]
+[ext_resource type="Script" path="res://ui/net_canvas.gd" id="2_canvas"]
+
+[node name="LevelPlay" type="Control"]
+layout_mode=3
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+grow_horizontal=2
+grow_vertical=2
+script = ExtResource("1_play")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode=1
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+grow_horizontal=2
+grow_vertical=2
+color = Color(0.09, 0.11, 0.16, 1)
+
+[node name="Root" type="HBoxContainer" parent="."]
+layout_mode=1
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+grow_horizontal=2
+grow_vertical=2
+theme_override_constants/separation=0
+
+[node name="SidePanel" type="PanelContainer" parent="Root"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode=2
+size_flags_vertical=3
+
+[node name="Margin" type="MarginContainer" parent="Root/SidePanel"]
+layout_mode=2
+theme_override_constants/margin_left=14
+theme_override_constants/margin_top=14
+theme_override_constants/margin_right=14
+theme_override_constants/margin_bottom=14
+
+[node name="VBox" type="VBoxContainer" parent="Root/SidePanel/Margin"]
+layout_mode=2
+theme_override_constants/separation=10
+
+[node name="BackBtn" type="Button" parent="Root/SidePanel/Margin/VBox"]
+unique_name_in_owner=true
+layout_mode=2
+text = "← Niveaux"
+
+[node name="TitleLabel" type="Label" parent="Root/SidePanel/Margin/VBox"]
+unique_name_in_owner=true
+layout_mode=2
+theme_override_font_sizes/font_size=18
+text = "Niveau"
+autowrap_mode=3
+
+[node name="StatementLabel" type="RichTextLabel" parent="Root/SidePanel/Margin/VBox"]
+unique_name_in_owner=true
+custom_minimum_size = Vector2(0, 160)
+layout_mode=2
+size_flags_vertical=3
+bbcode_enabled=true
+fit_content=false
+scroll_active=true
+text = "Énoncé"
+
+[node name="PropsPanel" type="VBoxContainer" parent="Root/SidePanel/Margin/VBox"]
+unique_name_in_owner=true
+layout_mode=2
+theme_override_constants/separation=6
+
+[node name="PropsTitle" type="Label" parent="Root/SidePanel/Margin/VBox/PropsPanel"]
+layout_mode=2
+text = "Propriétés"
+
+[node name="LabelRow" type="HBoxContainer" parent="Root/SidePanel/Margin/VBox/PropsPanel"]
+unique_name_in_owner=true
+layout_mode=2
+
+[node name="LabelCaption" type="Label" parent="Root/SidePanel/Margin/VBox/PropsPanel/LabelRow"]
+layout_mode=2
+size_flags_horizontal=3
+text = "Nom"
+
+[node name="LabelEdit" type="LineEdit" parent="Root/SidePanel/Margin/VBox/PropsPanel/LabelRow"]
+unique_name_in_owner=true
+custom_minimum_size = Vector2(120, 0)
+layout_mode=2
+
+[node name="TokensRow" type="HBoxContainer" parent="Root/SidePanel/Margin/VBox/PropsPanel"]
+unique_name_in_owner=true
+layout_mode=2
+
+[node name="TokensCaption" type="Label" parent="Root/SidePanel/Margin/VBox/PropsPanel/TokensRow"]
+layout_mode=2
+size_flags_horizontal=3
+text = "Jetons"
+
+[node name="TokensSpin" type="SpinBox" parent="Root/SidePanel/Margin/VBox/PropsPanel/TokensRow"]
+unique_name_in_owner=true
+layout_mode=2
+max_value=99.0
+
+[node name="WeightRow" type="HBoxContainer" parent="Root/SidePanel/Margin/VBox/PropsPanel"]
+unique_name_in_owner=true
+layout_mode=2
+
+[node name="WeightCaption" type="Label" parent="Root/SidePanel/Margin/VBox/PropsPanel/WeightRow"]
+layout_mode=2
+size_flags_horizontal=3
+text = "Poids arc"
+
+[node name="WeightSpin" type="SpinBox" parent="Root/SidePanel/Margin/VBox/PropsPanel/WeightRow"]
+unique_name_in_owner=true
+layout_mode=2
+min_value=1.0
+max_value=20.0
+value=1.0
+
+[node name="PriorityRow" type="HBoxContainer" parent="Root/SidePanel/Margin/VBox/PropsPanel"]
+unique_name_in_owner=true
+layout_mode=2
+
+[node name="PriorityCaption" type="Label" parent="Root/SidePanel/Margin/VBox/PropsPanel/PriorityRow"]
+layout_mode=2
+size_flags_horizontal=3
+text = "Priorité"
+
+[node name="PrioritySpin" type="SpinBox" parent="Root/SidePanel/Margin/VBox/PropsPanel/PriorityRow"]
+unique_name_in_owner=true
+layout_mode=2
+min_value=-5.0
+max_value=10.0
+
+[node name="ResolveBtn" type="Button" parent="Root/SidePanel/Margin/VBox"]
+unique_name_in_owner=true
+custom_minimum_size = Vector2(0, 44)
+layout_mode=2
+theme_override_font_sizes/font_size=18
+text = "Résoudre"
+
+[node name="ResetBtn" type="Button" parent="Root/SidePanel/Margin/VBox"]
+unique_name_in_owner=true
+layout_mode=2
+text = "Réinitialiser"
+
+[node name="MainCol" type="VBoxContainer" parent="Root"]
+layout_mode=2
+size_flags_horizontal=3
+size_flags_vertical=3
+theme_override_constants/separation=6
+
+[node name="ToolButtons" type="HBoxContainer" parent="Root/MainCol"]
+unique_name_in_owner=true
+layout_mode=2
+theme_override_constants/separation=6
+
+[node name="NetCanvas" type="Control" parent="Root/MainCol"]
+unique_name_in_owner=true
+layout_mode=2
+size_flags_horizontal=3
+size_flags_vertical=3
+script = ExtResource("2_canvas")
+
+[node name="ResultOverlay" type="ColorRect" parent="."]
+unique_name_in_owner=true
+visible=false
+layout_mode=1
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+grow_horizontal=2
+grow_vertical=2
+color = Color(0, 0, 0, 0.55)
+
+[node name="Center" type="CenterContainer" parent="ResultOverlay"]
+layout_mode=1
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+grow_horizontal=2
+grow_vertical=2
+mouse_filter=2
+
+[node name="ResultBox" type="VBoxContainer" parent="ResultOverlay/Center"]
+layout_mode=2
+theme_override_constants/separation=16
+mouse_filter=2
+
+[node name="ResultLabel" type="Label" parent="ResultOverlay/Center/ResultBox"]
+unique_name_in_owner=true
+custom_minimum_size = Vector2(320, 0)
+layout_mode=2
+theme_override_font_sizes/font_size=48
+text = "Validé"
+horizontal_alignment=1
+vertical_alignment=1
+
+[node name="ResultMessage" type="Label" parent="ResultOverlay/Center/ResultBox"]
+unique_name_in_owner=true
+visible=false
+custom_minimum_size = Vector2(320, 0)
+layout_mode=2
+theme_override_font_sizes/font_size=16
+text = "Tous les niveaux sont terminés."
+horizontal_alignment=1
+autowrap_mode=3
+
+[node name="NextLevelBtn" type="Button" parent="ResultOverlay/Center/ResultBox"]
+unique_name_in_owner=true
+visible=false
+custom_minimum_size = Vector2(220, 44)
+layout_mode=2
+size_flags_horizontal=4
+theme_override_font_sizes/font_size=18
+text = "Niveau suivant"
+
+[node name="BackToSelectBtn" type="Button" parent="ResultOverlay/Center/ResultBox"]
+unique_name_in_owner=true
+visible=false
+custom_minimum_size = Vector2(220, 40)
+layout_mode=2
+size_flags_horizontal=4
+text = "Retour aux niveaux"
+
+[node name="DismissHint" type="Label" parent="ResultOverlay/Center/ResultBox"]
+unique_name_in_owner=true
+custom_minimum_size = Vector2(320, 0)
+layout_mode=2
+theme_override_colors/font_color = Color(0.75, 0.78, 0.85, 1)
+theme_override_font_sizes/font_size=14
+text = "Cliquez ailleurs pour rejouer"
+horizontal_alignment=1

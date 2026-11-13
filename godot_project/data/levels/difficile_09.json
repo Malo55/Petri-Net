@@ -1,0 +1,144 @@
+{
+  "id": "difficile_09",
+  "order": 29,
+  "index": 9,
+  "difficulty": "difficile",
+  "title": "Jeton bloqueur",
+  "statement": "P2 inhibe T1. Retirez le jeton de P2 pour débloquer le réseau.",
+  "tools": [
+    "select",
+    "place",
+    "transition",
+    "arc",
+    "inhibitor",
+    "delete",
+    "edit_tokens",
+    "edit_weight",
+    "edit_priority",
+    "edit_label"
+  ],
+  "initial_net": {
+    "places": [
+      {
+        "id": "p1",
+        "label": "P1",
+        "tokens": 1,
+        "x": 140,
+        "y": 240
+      },
+      {
+        "id": "p2",
+        "label": "P2",
+        "tokens": 1,
+        "x": 140,
+        "y": 420
+      },
+      {
+        "id": "p3",
+        "label": "P3",
+        "tokens": 0,
+        "x": 560,
+        "y": 330
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t1",
+        "label": "T1",
+        "priority": 0,
+        "x": 340,
+        "y": 330
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p1",
+        "to": "t1",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "p2",
+        "to": "t1",
+        "weight": 1,
+        "inhibitor": true
+      },
+      {
+        "id": "a3",
+        "from": "t1",
+        "to": "p3",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "solution_net": {
+    "places": [
+      {
+        "id": "p1",
+        "label": "P1",
+        "tokens": 1,
+        "x": 140,
+        "y": 240
+      },
+      {
+        "id": "p2",
+        "label": "P2",
+        "tokens": 0,
+        "x": 140,
+        "y": 420
+      },
+      {
+        "id": "p3",
+        "label": "P3",
+        "tokens": 0,
+        "x": 560,
+        "y": 330
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t1",
+        "label": "T1",
+        "priority": 0,
+        "x": 340,
+        "y": 330
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p1",
+        "to": "t1",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "p2",
+        "to": "t1",
+        "weight": 1,
+        "inhibitor": true
+      },
+      {
+        "id": "a3",
+        "from": "t1",
+        "to": "p3",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "scenario": {
+    "firing_sequence": [
+      "T1"
+    ],
+    "target_marking": {
+      "P1": 0,
+      "P2": 0,
+      "P3": 1
+    }
+  }
+}

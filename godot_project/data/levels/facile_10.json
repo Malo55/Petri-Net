@@ -1,0 +1,171 @@
+{
+  "id": "facile_10",
+  "order": 10,
+  "index": 10,
+  "difficulty": "facile",
+  "title": "Chaîne de transitions",
+  "statement": "Le jeton doit aller de P1 à P3 via T1 puis T2. Placez un jeton dans P1.",
+  "tools": [
+    "select",
+    "place",
+    "transition",
+    "arc",
+    "delete",
+    "edit_tokens",
+    "edit_weight",
+    "edit_label"
+  ],
+  "initial_net": {
+    "places": [
+      {
+        "id": "p1",
+        "label": "P1",
+        "tokens": 0,
+        "x": 120,
+        "y": 300
+      },
+      {
+        "id": "p2",
+        "label": "P2",
+        "tokens": 0,
+        "x": 360,
+        "y": 300
+      },
+      {
+        "id": "p3",
+        "label": "P3",
+        "tokens": 0,
+        "x": 600,
+        "y": 300
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t1",
+        "label": "T1",
+        "priority": 0,
+        "x": 240,
+        "y": 300
+      },
+      {
+        "id": "t2",
+        "label": "T2",
+        "priority": 0,
+        "x": 480,
+        "y": 300
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p1",
+        "to": "t1",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t1",
+        "to": "p2",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a3",
+        "from": "p2",
+        "to": "t2",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a4",
+        "from": "t2",
+        "to": "p3",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "solution_net": {
+    "places": [
+      {
+        "id": "p1",
+        "label": "P1",
+        "tokens": 1,
+        "x": 120,
+        "y": 300
+      },
+      {
+        "id": "p2",
+        "label": "P2",
+        "tokens": 0,
+        "x": 360,
+        "y": 300
+      },
+      {
+        "id": "p3",
+        "label": "P3",
+        "tokens": 0,
+        "x": 600,
+        "y": 300
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t1",
+        "label": "T1",
+        "priority": 0,
+        "x": 240,
+        "y": 300
+      },
+      {
+        "id": "t2",
+        "label": "T2",
+        "priority": 0,
+        "x": 480,
+        "y": 300
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p1",
+        "to": "t1",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t1",
+        "to": "p2",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a3",
+        "from": "p2",
+        "to": "t2",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a4",
+        "from": "t2",
+        "to": "p3",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "scenario": {
+    "firing_sequence": [
+      "T1",
+      "T2"
+    ],
+    "target_marking": {
+      "P1": 0,
+      "P2": 0,
+      "P3": 1
+    }
+  }
+}

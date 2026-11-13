@@ -1,0 +1,178 @@
+{
+  "id": "moyen_09",
+  "order": 19,
+  "index": 9,
+  "difficulty": "moyen",
+  "title": "Place complémentaire",
+  "statement": "Ajoutez la place complémentaire C (1 jeton) avec arcs C→Tab et Tba→C pour limiter A/B.",
+  "tools": [
+    "select",
+    "place",
+    "transition",
+    "arc",
+    "delete",
+    "edit_tokens",
+    "edit_weight",
+    "edit_label"
+  ],
+  "initial_net": {
+    "places": [
+      {
+        "id": "p_a",
+        "label": "A",
+        "tokens": 1,
+        "x": 140,
+        "y": 240
+      },
+      {
+        "id": "p_b",
+        "label": "B",
+        "tokens": 0,
+        "x": 140,
+        "y": 420
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t_ab",
+        "label": "Tab",
+        "priority": 0,
+        "x": 340,
+        "y": 240
+      },
+      {
+        "id": "t_ba",
+        "label": "Tba",
+        "priority": 0,
+        "x": 340,
+        "y": 420
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p_a",
+        "to": "t_ab",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t_ab",
+        "to": "p_b",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a3",
+        "from": "p_b",
+        "to": "t_ba",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a4",
+        "from": "t_ba",
+        "to": "p_a",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "solution_net": {
+    "places": [
+      {
+        "id": "p_a",
+        "label": "A",
+        "tokens": 1,
+        "x": 140,
+        "y": 240
+      },
+      {
+        "id": "p_b",
+        "label": "B",
+        "tokens": 0,
+        "x": 140,
+        "y": 420
+      },
+      {
+        "id": "p_c",
+        "label": "C",
+        "tokens": 1,
+        "x": 560,
+        "y": 330
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t_ab",
+        "label": "Tab",
+        "priority": 0,
+        "x": 340,
+        "y": 240
+      },
+      {
+        "id": "t_ba",
+        "label": "Tba",
+        "priority": 0,
+        "x": 340,
+        "y": 420
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p_a",
+        "to": "t_ab",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t_ab",
+        "to": "p_b",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a3",
+        "from": "p_b",
+        "to": "t_ba",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a4",
+        "from": "t_ba",
+        "to": "p_a",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a5",
+        "from": "p_c",
+        "to": "t_ab",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a6",
+        "from": "t_ba",
+        "to": "p_c",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "scenario": {
+    "firing_sequence": [
+      "Tab",
+      "Tba"
+    ],
+    "target_marking": {
+      "A": 1,
+      "B": 0,
+      "C": 1
+    }
+  }
+}

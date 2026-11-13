@@ -1,0 +1,113 @@
+{
+  "id": "facile_01",
+  "order": 1,
+  "index": 1,
+  "difficulty": "facile",
+  "title": "Premier jeton",
+  "statement": "La transition T1 doit pouvoir se franchir une fois. Placez le bon nombre de jetons dans P1, puis observez P2 recevoir un jeton.",
+  "tools": [
+    "select",
+    "place",
+    "transition",
+    "arc",
+    "delete",
+    "edit_tokens",
+    "edit_weight",
+    "edit_label"
+  ],
+  "initial_net": {
+    "places": [
+      {
+        "id": "p1",
+        "label": "P1",
+        "tokens": 0,
+        "x": 180,
+        "y": 280
+      },
+      {
+        "id": "p2",
+        "label": "P2",
+        "tokens": 0,
+        "x": 520,
+        "y": 280
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t1",
+        "label": "T1",
+        "priority": 0,
+        "x": 350,
+        "y": 280
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p1",
+        "to": "t1",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t1",
+        "to": "p2",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "solution_net": {
+    "places": [
+      {
+        "id": "p1",
+        "label": "P1",
+        "tokens": 1,
+        "x": 180,
+        "y": 280
+      },
+      {
+        "id": "p2",
+        "label": "P2",
+        "tokens": 0,
+        "x": 520,
+        "y": 280
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t1",
+        "label": "T1",
+        "priority": 0,
+        "x": 350,
+        "y": 280
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p1",
+        "to": "t1",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t1",
+        "to": "p2",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "scenario": {
+    "firing_sequence": [
+      "T1"
+    ],
+    "target_marking": {
+      "P1": 0,
+      "P2": 1
+    }
+  }
+}

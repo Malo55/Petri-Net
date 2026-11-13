@@ -1,0 +1,274 @@
+{
+  "id": "expert_10",
+  "order": 40,
+  "index": 10,
+  "difficulty": "expert",
+  "title": "Défi final",
+  "statement": "Videz Lock (qui inhibe Ta). Ensuite la séquence Ta, Tb, Merge produit un jeton dans Out.",
+  "tools": [
+    "select",
+    "place",
+    "transition",
+    "arc",
+    "inhibitor",
+    "delete",
+    "edit_tokens",
+    "edit_weight",
+    "edit_priority",
+    "edit_label"
+  ],
+  "initial_net": {
+    "places": [
+      {
+        "id": "p_in",
+        "label": "In",
+        "tokens": 2,
+        "x": 80,
+        "y": 300
+      },
+      {
+        "id": "p_lock",
+        "label": "Lock",
+        "tokens": 1,
+        "x": 80,
+        "y": 480
+      },
+      {
+        "id": "p_a",
+        "label": "A",
+        "tokens": 0,
+        "x": 300,
+        "y": 200
+      },
+      {
+        "id": "p_b",
+        "label": "B",
+        "tokens": 0,
+        "x": 300,
+        "y": 400
+      },
+      {
+        "id": "p_out",
+        "label": "Out",
+        "tokens": 0,
+        "x": 700,
+        "y": 300
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t_a",
+        "label": "Ta",
+        "priority": 0,
+        "x": 200,
+        "y": 200
+      },
+      {
+        "id": "t_b",
+        "label": "Tb",
+        "priority": 0,
+        "x": 200,
+        "y": 400
+      },
+      {
+        "id": "t_merge",
+        "label": "Merge",
+        "priority": 0,
+        "x": 500,
+        "y": 300
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p_in",
+        "to": "t_a",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t_a",
+        "to": "p_a",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a3",
+        "from": "p_lock",
+        "to": "t_a",
+        "weight": 1,
+        "inhibitor": true
+      },
+      {
+        "id": "a4",
+        "from": "p_in",
+        "to": "t_b",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a5",
+        "from": "t_b",
+        "to": "p_b",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a6",
+        "from": "p_a",
+        "to": "t_merge",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a7",
+        "from": "p_b",
+        "to": "t_merge",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a8",
+        "from": "t_merge",
+        "to": "p_out",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "solution_net": {
+    "places": [
+      {
+        "id": "p_in",
+        "label": "In",
+        "tokens": 2,
+        "x": 80,
+        "y": 300
+      },
+      {
+        "id": "p_lock",
+        "label": "Lock",
+        "tokens": 0,
+        "x": 80,
+        "y": 480
+      },
+      {
+        "id": "p_a",
+        "label": "A",
+        "tokens": 0,
+        "x": 300,
+        "y": 200
+      },
+      {
+        "id": "p_b",
+        "label": "B",
+        "tokens": 0,
+        "x": 300,
+        "y": 400
+      },
+      {
+        "id": "p_out",
+        "label": "Out",
+        "tokens": 0,
+        "x": 700,
+        "y": 300
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t_a",
+        "label": "Ta",
+        "priority": 0,
+        "x": 200,
+        "y": 200
+      },
+      {
+        "id": "t_b",
+        "label": "Tb",
+        "priority": 0,
+        "x": 200,
+        "y": 400
+      },
+      {
+        "id": "t_merge",
+        "label": "Merge",
+        "priority": 0,
+        "x": 500,
+        "y": 300
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p_in",
+        "to": "t_a",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t_a",
+        "to": "p_a",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a3",
+        "from": "p_lock",
+        "to": "t_a",
+        "weight": 1,
+        "inhibitor": true
+      },
+      {
+        "id": "a4",
+        "from": "p_in",
+        "to": "t_b",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a5",
+        "from": "t_b",
+        "to": "p_b",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a6",
+        "from": "p_a",
+        "to": "t_merge",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a7",
+        "from": "p_b",
+        "to": "t_merge",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a8",
+        "from": "t_merge",
+        "to": "p_out",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "scenario": {
+    "firing_sequence": [
+      "Ta",
+      "Tb",
+      "Merge"
+    ],
+    "target_marking": {
+      "In": 0,
+      "Lock": 0,
+      "A": 0,
+      "B": 0,
+      "Out": 1
+    }
+  }
+}

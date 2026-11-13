@@ -1,0 +1,230 @@
+{
+  "id": "difficile_06",
+  "order": 26,
+  "index": 6,
+  "difficulty": "difficile",
+  "title": "Producteur / consommateur",
+  "statement": "Buffer de capacité 2 : Empty doit avoir 2 jetons. Enchaînez Prod, Prod, Cons, Cons.",
+  "tools": [
+    "select",
+    "place",
+    "transition",
+    "arc",
+    "delete",
+    "edit_tokens",
+    "edit_weight",
+    "edit_label"
+  ],
+  "initial_net": {
+    "places": [
+      {
+        "id": "p_empty",
+        "label": "Empty",
+        "tokens": 1,
+        "x": 120,
+        "y": 200
+      },
+      {
+        "id": "p_full",
+        "label": "Full",
+        "tokens": 0,
+        "x": 120,
+        "y": 400
+      },
+      {
+        "id": "p_item",
+        "label": "Item",
+        "tokens": 0,
+        "x": 400,
+        "y": 300
+      },
+      {
+        "id": "p_done",
+        "label": "Done",
+        "tokens": 0,
+        "x": 650,
+        "y": 300
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t_prod",
+        "label": "Prod",
+        "priority": 0,
+        "x": 260,
+        "y": 200
+      },
+      {
+        "id": "t_cons",
+        "label": "Cons",
+        "priority": 0,
+        "x": 500,
+        "y": 400
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p_empty",
+        "to": "t_prod",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t_prod",
+        "to": "p_full",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a3",
+        "from": "t_prod",
+        "to": "p_item",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a4",
+        "from": "p_full",
+        "to": "t_cons",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a5",
+        "from": "p_item",
+        "to": "t_cons",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a6",
+        "from": "t_cons",
+        "to": "p_empty",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a7",
+        "from": "t_cons",
+        "to": "p_done",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "solution_net": {
+    "places": [
+      {
+        "id": "p_empty",
+        "label": "Empty",
+        "tokens": 2,
+        "x": 120,
+        "y": 200
+      },
+      {
+        "id": "p_full",
+        "label": "Full",
+        "tokens": 0,
+        "x": 120,
+        "y": 400
+      },
+      {
+        "id": "p_item",
+        "label": "Item",
+        "tokens": 0,
+        "x": 400,
+        "y": 300
+      },
+      {
+        "id": "p_done",
+        "label": "Done",
+        "tokens": 0,
+        "x": 650,
+        "y": 300
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t_prod",
+        "label": "Prod",
+        "priority": 0,
+        "x": 260,
+        "y": 200
+      },
+      {
+        "id": "t_cons",
+        "label": "Cons",
+        "priority": 0,
+        "x": 500,
+        "y": 400
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p_empty",
+        "to": "t_prod",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t_prod",
+        "to": "p_full",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a3",
+        "from": "t_prod",
+        "to": "p_item",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a4",
+        "from": "p_full",
+        "to": "t_cons",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a5",
+        "from": "p_item",
+        "to": "t_cons",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a6",
+        "from": "t_cons",
+        "to": "p_empty",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a7",
+        "from": "t_cons",
+        "to": "p_done",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "scenario": {
+    "firing_sequence": [
+      "Prod",
+      "Prod",
+      "Cons",
+      "Cons"
+    ],
+    "target_marking": {
+      "Empty": 2,
+      "Full": 0,
+      "Item": 0,
+      "Done": 2
+    }
+  }
+}

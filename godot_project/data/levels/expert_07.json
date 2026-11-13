@@ -1,0 +1,238 @@
+{
+  "id": "expert_07",
+  "order": 37,
+  "index": 7,
+  "difficulty": "expert",
+  "title": "Porte et priorité",
+  "statement": "Fin est incorrectement inhibée par Gate. Supprimez l'arc inhibiteur Gate→Fin. Séquence Open, Step, Fin.",
+  "tools": [
+    "select",
+    "place",
+    "transition",
+    "arc",
+    "inhibitor",
+    "delete",
+    "edit_tokens",
+    "edit_weight",
+    "edit_priority",
+    "edit_label"
+  ],
+  "initial_net": {
+    "places": [
+      {
+        "id": "p_s",
+        "label": "Start",
+        "tokens": 1,
+        "x": 100,
+        "y": 300
+      },
+      {
+        "id": "p_g",
+        "label": "Gate",
+        "tokens": 1,
+        "x": 100,
+        "y": 480
+      },
+      {
+        "id": "p_m",
+        "label": "Mid",
+        "tokens": 0,
+        "x": 360,
+        "y": 300
+      },
+      {
+        "id": "p_e",
+        "label": "End",
+        "tokens": 0,
+        "x": 620,
+        "y": 300
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t_open",
+        "label": "Open",
+        "priority": 0,
+        "x": 240,
+        "y": 480
+      },
+      {
+        "id": "t_step",
+        "label": "Step",
+        "priority": 2,
+        "x": 240,
+        "y": 300
+      },
+      {
+        "id": "t_fin",
+        "label": "Fin",
+        "priority": 0,
+        "x": 500,
+        "y": 300
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p_g",
+        "to": "t_open",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "p_s",
+        "to": "t_step",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a3",
+        "from": "t_step",
+        "to": "p_m",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a4",
+        "from": "p_g",
+        "to": "t_step",
+        "weight": 1,
+        "inhibitor": true
+      },
+      {
+        "id": "a5",
+        "from": "p_m",
+        "to": "t_fin",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a6",
+        "from": "t_fin",
+        "to": "p_e",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a7",
+        "from": "p_g",
+        "to": "t_fin",
+        "weight": 1,
+        "inhibitor": true
+      }
+    ]
+  },
+  "solution_net": {
+    "places": [
+      {
+        "id": "p_s",
+        "label": "Start",
+        "tokens": 1,
+        "x": 100,
+        "y": 300
+      },
+      {
+        "id": "p_g",
+        "label": "Gate",
+        "tokens": 1,
+        "x": 100,
+        "y": 480
+      },
+      {
+        "id": "p_m",
+        "label": "Mid",
+        "tokens": 0,
+        "x": 360,
+        "y": 300
+      },
+      {
+        "id": "p_e",
+        "label": "End",
+        "tokens": 0,
+        "x": 620,
+        "y": 300
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t_open",
+        "label": "Open",
+        "priority": 0,
+        "x": 240,
+        "y": 480
+      },
+      {
+        "id": "t_step",
+        "label": "Step",
+        "priority": 2,
+        "x": 240,
+        "y": 300
+      },
+      {
+        "id": "t_fin",
+        "label": "Fin",
+        "priority": 0,
+        "x": 500,
+        "y": 300
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p_g",
+        "to": "t_open",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "p_s",
+        "to": "t_step",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a3",
+        "from": "t_step",
+        "to": "p_m",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a4",
+        "from": "p_g",
+        "to": "t_step",
+        "weight": 1,
+        "inhibitor": true
+      },
+      {
+        "id": "a5",
+        "from": "p_m",
+        "to": "t_fin",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a6",
+        "from": "t_fin",
+        "to": "p_e",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "scenario": {
+    "firing_sequence": [
+      "Open",
+      "Step",
+      "Fin"
+    ],
+    "target_marking": {
+      "Start": 0,
+      "Gate": 0,
+      "Mid": 0,
+      "End": 1
+    }
+  }
+}

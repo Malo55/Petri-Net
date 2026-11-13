@@ -1,0 +1,8 @@
+.godot/
+build/
+*.translation
+export_credentials.cfg
+tools/godot/
+*.import
+.mono/
+data_*/

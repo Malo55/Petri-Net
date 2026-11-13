@@ -1,0 +1,113 @@
+{
+  "id": "facile_09",
+  "order": 9,
+  "index": 9,
+  "difficulty": "facile",
+  "title": "Consommation totale",
+  "statement": "Un seul franchissement de T1 doit consommer les 3 jetons de P1. Corrigez le poids de l'arc d'entrée.",
+  "tools": [
+    "select",
+    "place",
+    "transition",
+    "arc",
+    "delete",
+    "edit_tokens",
+    "edit_weight",
+    "edit_label"
+  ],
+  "initial_net": {
+    "places": [
+      {
+        "id": "p1",
+        "label": "P1",
+        "tokens": 3,
+        "x": 180,
+        "y": 280
+      },
+      {
+        "id": "p2",
+        "label": "P2",
+        "tokens": 0,
+        "x": 520,
+        "y": 280
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t1",
+        "label": "T1",
+        "priority": 0,
+        "x": 350,
+        "y": 280
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p1",
+        "to": "t1",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t1",
+        "to": "p2",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "solution_net": {
+    "places": [
+      {
+        "id": "p1",
+        "label": "P1",
+        "tokens": 3,
+        "x": 180,
+        "y": 280
+      },
+      {
+        "id": "p2",
+        "label": "P2",
+        "tokens": 0,
+        "x": 520,
+        "y": 280
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t1",
+        "label": "T1",
+        "priority": 0,
+        "x": 350,
+        "y": 280
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p1",
+        "to": "t1",
+        "weight": 3,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t1",
+        "to": "p2",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "scenario": {
+    "firing_sequence": [
+      "T1"
+    ],
+    "target_marking": {
+      "P1": 0,
+      "P2": 1
+    }
+  }
+}

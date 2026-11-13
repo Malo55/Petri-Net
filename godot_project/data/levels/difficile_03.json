@@ -1,0 +1,195 @@
+{
+  "id": "difficile_03",
+  "order": 23,
+  "index": 3,
+  "difficulty": "difficile",
+  "title": "Lever l'inhibition",
+  "statement": "Go est inhibé par P2. Clear doit vider P2 vers P3. Ajoutez Clear→P3, puis séquence Clear, Go.",
+  "tools": [
+    "select",
+    "place",
+    "transition",
+    "arc",
+    "inhibitor",
+    "delete",
+    "edit_tokens",
+    "edit_weight",
+    "edit_priority",
+    "edit_label"
+  ],
+  "initial_net": {
+    "places": [
+      {
+        "id": "p1",
+        "label": "P1",
+        "tokens": 1,
+        "x": 120,
+        "y": 200
+      },
+      {
+        "id": "p2",
+        "label": "P2",
+        "tokens": 1,
+        "x": 120,
+        "y": 400
+      },
+      {
+        "id": "p3",
+        "label": "P3",
+        "tokens": 0,
+        "x": 400,
+        "y": 200
+      },
+      {
+        "id": "p4",
+        "label": "P4",
+        "tokens": 0,
+        "x": 650,
+        "y": 300
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t_clear",
+        "label": "Clear",
+        "priority": 0,
+        "x": 280,
+        "y": 400
+      },
+      {
+        "id": "t_go",
+        "label": "Go",
+        "priority": 0,
+        "x": 500,
+        "y": 200
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p2",
+        "to": "t_clear",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "p1",
+        "to": "t_go",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a3",
+        "from": "t_go",
+        "to": "p4",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a4",
+        "from": "p2",
+        "to": "t_go",
+        "weight": 1,
+        "inhibitor": true
+      }
+    ]
+  },
+  "solution_net": {
+    "places": [
+      {
+        "id": "p1",
+        "label": "P1",
+        "tokens": 1,
+        "x": 120,
+        "y": 200
+      },
+      {
+        "id": "p2",
+        "label": "P2",
+        "tokens": 1,
+        "x": 120,
+        "y": 400
+      },
+      {
+        "id": "p3",
+        "label": "P3",
+        "tokens": 0,
+        "x": 400,
+        "y": 400
+      },
+      {
+        "id": "p4",
+        "label": "P4",
+        "tokens": 0,
+        "x": 650,
+        "y": 300
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t_clear",
+        "label": "Clear",
+        "priority": 0,
+        "x": 280,
+        "y": 400
+      },
+      {
+        "id": "t_go",
+        "label": "Go",
+        "priority": 0,
+        "x": 500,
+        "y": 200
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p2",
+        "to": "t_clear",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a5",
+        "from": "t_clear",
+        "to": "p3",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "p1",
+        "to": "t_go",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a3",
+        "from": "t_go",
+        "to": "p4",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a4",
+        "from": "p2",
+        "to": "t_go",
+        "weight": 1,
+        "inhibitor": true
+      }
+    ]
+  },
+  "scenario": {
+    "firing_sequence": [
+      "Clear",
+      "Go"
+    ],
+    "target_marking": {
+      "P1": 0,
+      "P2": 0,
+      "P3": 1,
+      "P4": 1
+    }
+  }
+}

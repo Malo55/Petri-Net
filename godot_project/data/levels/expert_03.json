@@ -1,0 +1,229 @@
+{
+  "id": "expert_03",
+  "order": 33,
+  "index": 3,
+  "difficulty": "expert",
+  "title": "Conflit à trois",
+  "statement": "Trois transitions en conflit. Donnez la priorité 3 à T2 pour atteindre P2.",
+  "tools": [
+    "select",
+    "place",
+    "transition",
+    "arc",
+    "inhibitor",
+    "delete",
+    "edit_tokens",
+    "edit_weight",
+    "edit_priority",
+    "edit_label"
+  ],
+  "initial_net": {
+    "places": [
+      {
+        "id": "p0",
+        "label": "P0",
+        "tokens": 1,
+        "x": 140,
+        "y": 300
+      },
+      {
+        "id": "p1",
+        "label": "P1",
+        "tokens": 0,
+        "x": 560,
+        "y": 140
+      },
+      {
+        "id": "p2",
+        "label": "P2",
+        "tokens": 0,
+        "x": 560,
+        "y": 300
+      },
+      {
+        "id": "p3",
+        "label": "P3",
+        "tokens": 0,
+        "x": 560,
+        "y": 460
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t1",
+        "label": "T1",
+        "priority": 1,
+        "x": 340,
+        "y": 140
+      },
+      {
+        "id": "t2",
+        "label": "T2",
+        "priority": 1,
+        "x": 340,
+        "y": 300
+      },
+      {
+        "id": "t3",
+        "label": "T3",
+        "priority": 1,
+        "x": 340,
+        "y": 460
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p0",
+        "to": "t1",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t1",
+        "to": "p1",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a3",
+        "from": "p0",
+        "to": "t2",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a4",
+        "from": "t2",
+        "to": "p2",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a5",
+        "from": "p0",
+        "to": "t3",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a6",
+        "from": "t3",
+        "to": "p3",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "solution_net": {
+    "places": [
+      {
+        "id": "p0",
+        "label": "P0",
+        "tokens": 1,
+        "x": 140,
+        "y": 300
+      },
+      {
+        "id": "p1",
+        "label": "P1",
+        "tokens": 0,
+        "x": 560,
+        "y": 140
+      },
+      {
+        "id": "p2",
+        "label": "P2",
+        "tokens": 0,
+        "x": 560,
+        "y": 300
+      },
+      {
+        "id": "p3",
+        "label": "P3",
+        "tokens": 0,
+        "x": 560,
+        "y": 460
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t1",
+        "label": "T1",
+        "priority": 1,
+        "x": 340,
+        "y": 140
+      },
+      {
+        "id": "t2",
+        "label": "T2",
+        "priority": 3,
+        "x": 340,
+        "y": 300
+      },
+      {
+        "id": "t3",
+        "label": "T3",
+        "priority": 1,
+        "x": 340,
+        "y": 460
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p0",
+        "to": "t1",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t1",
+        "to": "p1",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a3",
+        "from": "p0",
+        "to": "t2",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a4",
+        "from": "t2",
+        "to": "p2",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a5",
+        "from": "p0",
+        "to": "t3",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a6",
+        "from": "t3",
+        "to": "p3",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "scenario": {
+    "firing_sequence": [
+      "T2"
+    ],
+    "target_marking": {
+      "P0": 0,
+      "P1": 0,
+      "P2": 1,
+      "P3": 0
+    }
+  }
+}

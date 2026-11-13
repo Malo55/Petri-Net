@@ -1,0 +1,186 @@
+{
+  "id": "moyen_06",
+  "order": 16,
+  "index": 6,
+  "difficulty": "moyen",
+  "title": "Parallélisme",
+  "statement": "Deux chaînes indépendantes. Corrigez P3 pour que T1 et T2 puissent toutes deux se franchir (ordre T1 puis T2).",
+  "tools": [
+    "select",
+    "place",
+    "transition",
+    "arc",
+    "delete",
+    "edit_tokens",
+    "edit_weight",
+    "edit_label"
+  ],
+  "initial_net": {
+    "places": [
+      {
+        "id": "p1",
+        "label": "P1",
+        "tokens": 1,
+        "x": 120,
+        "y": 180
+      },
+      {
+        "id": "p2",
+        "label": "P2",
+        "tokens": 0,
+        "x": 400,
+        "y": 180
+      },
+      {
+        "id": "p3",
+        "label": "P3",
+        "tokens": 0,
+        "x": 120,
+        "y": 420
+      },
+      {
+        "id": "p4",
+        "label": "P4",
+        "tokens": 0,
+        "x": 400,
+        "y": 420
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t1",
+        "label": "T1",
+        "priority": 0,
+        "x": 260,
+        "y": 180
+      },
+      {
+        "id": "t2",
+        "label": "T2",
+        "priority": 0,
+        "x": 260,
+        "y": 420
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p1",
+        "to": "t1",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t1",
+        "to": "p2",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a3",
+        "from": "p3",
+        "to": "t2",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a4",
+        "from": "t2",
+        "to": "p4",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "solution_net": {
+    "places": [
+      {
+        "id": "p1",
+        "label": "P1",
+        "tokens": 1,
+        "x": 120,
+        "y": 180
+      },
+      {
+        "id": "p2",
+        "label": "P2",
+        "tokens": 0,
+        "x": 400,
+        "y": 180
+      },
+      {
+        "id": "p3",
+        "label": "P3",
+        "tokens": 1,
+        "x": 120,
+        "y": 420
+      },
+      {
+        "id": "p4",
+        "label": "P4",
+        "tokens": 0,
+        "x": 400,
+        "y": 420
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t1",
+        "label": "T1",
+        "priority": 0,
+        "x": 260,
+        "y": 180
+      },
+      {
+        "id": "t2",
+        "label": "T2",
+        "priority": 0,
+        "x": 260,
+        "y": 420
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p1",
+        "to": "t1",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t1",
+        "to": "p2",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a3",
+        "from": "p3",
+        "to": "t2",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a4",
+        "from": "t2",
+        "to": "p4",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "scenario": {
+    "firing_sequence": [
+      "T1",
+      "T2"
+    ],
+    "target_marking": {
+      "P1": 0,
+      "P2": 1,
+      "P3": 0,
+      "P4": 1
+    }
+  }
+}

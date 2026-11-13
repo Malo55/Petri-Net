@@ -1,0 +1,186 @@
+{
+  "id": "moyen_10",
+  "order": 20,
+  "index": 10,
+  "difficulty": "moyen",
+  "title": "Mauvaise connexion",
+  "statement": "L'arc d'entrée de T2 doit partir de P2 (pas P3). Supprimez P3→T2 et créez P2→T2. Vous pouvez supprimer P3 si elle devient inutile — la solution attend P3 sans jeton et sans arc.",
+  "tools": [
+    "select",
+    "place",
+    "transition",
+    "arc",
+    "delete",
+    "edit_tokens",
+    "edit_weight",
+    "edit_label"
+  ],
+  "initial_net": {
+    "places": [
+      {
+        "id": "p1",
+        "label": "P1",
+        "tokens": 1,
+        "x": 140,
+        "y": 300
+      },
+      {
+        "id": "p2",
+        "label": "P2",
+        "tokens": 0,
+        "x": 400,
+        "y": 180
+      },
+      {
+        "id": "p3",
+        "label": "P3",
+        "tokens": 0,
+        "x": 400,
+        "y": 420
+      },
+      {
+        "id": "p4",
+        "label": "P4",
+        "tokens": 0,
+        "x": 660,
+        "y": 300
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t1",
+        "label": "T1",
+        "priority": 0,
+        "x": 270,
+        "y": 300
+      },
+      {
+        "id": "t2",
+        "label": "T2",
+        "priority": 0,
+        "x": 530,
+        "y": 300
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p1",
+        "to": "t1",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t1",
+        "to": "p2",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a3",
+        "from": "p3",
+        "to": "t2",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a4",
+        "from": "t2",
+        "to": "p4",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "solution_net": {
+    "places": [
+      {
+        "id": "p1",
+        "label": "P1",
+        "tokens": 1,
+        "x": 140,
+        "y": 300
+      },
+      {
+        "id": "p2",
+        "label": "P2",
+        "tokens": 0,
+        "x": 400,
+        "y": 180
+      },
+      {
+        "id": "p3",
+        "label": "P3",
+        "tokens": 0,
+        "x": 400,
+        "y": 420
+      },
+      {
+        "id": "p4",
+        "label": "P4",
+        "tokens": 0,
+        "x": 660,
+        "y": 300
+      }
+    ],
+    "transitions": [
+      {
+        "id": "t1",
+        "label": "T1",
+        "priority": 0,
+        "x": 270,
+        "y": 300
+      },
+      {
+        "id": "t2",
+        "label": "T2",
+        "priority": 0,
+        "x": 530,
+        "y": 300
+      }
+    ],
+    "arcs": [
+      {
+        "id": "a1",
+        "from": "p1",
+        "to": "t1",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a2",
+        "from": "t1",
+        "to": "p2",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a3",
+        "from": "p2",
+        "to": "t2",
+        "weight": 1,
+        "inhibitor": false
+      },
+      {
+        "id": "a4",
+        "from": "t2",
+        "to": "p4",
+        "weight": 1,
+        "inhibitor": false
+      }
+    ]
+  },
+  "scenario": {
+    "firing_sequence": [
+      "T1",
+      "T2"
+    ],
+    "target_marking": {
+      "P1": 0,
+      "P2": 0,
+      "P3": 0,
+      "P4": 1
+    }
+  }
+}
