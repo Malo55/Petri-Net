@@ -1,5 +1,5 @@
 .godot/
-build/
+
 *.translation
 export_credentials.cfg
 tools/godot/
